@@ -1,0 +1,40 @@
+<!--public String source;-->
+<!--public String reportJsonUrl;-->
+<!--public String HTMLReport;-->
+<!--public String JSONReport;-->
+<!--public String reportHtmlUrl;-->
+<!--public String[] recipients;-->
+<!--public String projectUrl;-->
+<!--public String buildUrl;-->
+<!--public String date;-->
+<!--public String commit;-->
+<!--public String branch;-->
+
+<#if reports?has_content>
+
+<hr/>
+<table class="attributes" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="margin: 0 0 21px;">
+    <tr>
+        <td class="attributes_content"
+            style="word-break: break-word; font-family: Helvetica, Arial, sans-serif; font-size: 16px; background-color: #F4F4F7; padding: 16px;"
+            bgcolor="#F4F4F7">
+            <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
+                <#list reports as report>
+                    <tr>
+                        <td class="attributes_item"
+                            style="word-break: break-word; font-family: Helvetica, Arial, sans-serif; font-size: 16px; padding: 0;">
+                            <div class="f-fallback">
+                                <strong>
+                                    <a href="${report.url}" style="color: #3869D4;">${report.filename}</a></strong>
+                                <br>
+                                <br>
+                            </div>
+                        </td>
+                    </tr>
+                </#list>
+
+</table>
+</td>
+</tr>
+</table>
+</#if>
