@@ -114,6 +114,8 @@ public class DevsecOpsApplicationTests {
 		engine.init(ScanSource.SNYK);
 		((SnykEnginePolicy)engine.getObject().getEnginePolicy()).maxHighAllowed = 100;
 		engine.doRun();
+		String templateContent = handler.compile(engine.getObject());
+		IOUtils.write(templateContent,new FileOutputStream(name));
 		Assert.assertTrue(engine.getObject().getResults().getSuccess());
 	}
 
