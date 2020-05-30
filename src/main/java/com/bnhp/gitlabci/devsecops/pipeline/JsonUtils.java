@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
+
 import java.io.*;
 import java.util.*;
 
@@ -168,7 +169,6 @@ public class JsonUtils {
             throw new RuntimeException(e);
         }
     }
-
 
 
     public static String serializePretty(final Object obj) {

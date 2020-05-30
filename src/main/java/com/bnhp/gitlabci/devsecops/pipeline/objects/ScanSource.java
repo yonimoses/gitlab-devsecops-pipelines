@@ -13,7 +13,8 @@ public enum ScanSource {
     ScanSource(String source) {
         this.source = source;
     }
-    public String asString(){
+
+    public String asString() {
         return source.toLowerCase();
     }
 

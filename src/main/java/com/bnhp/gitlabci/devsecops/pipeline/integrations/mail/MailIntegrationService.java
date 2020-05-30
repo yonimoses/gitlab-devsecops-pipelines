@@ -4,7 +4,6 @@ import com.bnhp.gitlabci.devsecops.pipeline.objects.ReportObject;
 import com.bnhp.gitlabci.devsecops.pipeline.objects.ScanObject;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.core.env.Environment;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Component;
@@ -33,8 +32,8 @@ public class MailIntegrationService {
             mimeMessageHelper.setSubject("Your " + obj.getSource() + " report is ready");
             mimeMessageHelper.setFrom(Objects.requireNonNull(environment.getProperty("devsecops.integration.mail.from")));
             mimeMessageHelper.setTo(obj.getRecipients());
-            mimeMessageHelper.setText(templateContent,true);
-            for (ReportObject attachment: obj.getReports()) {
+            mimeMessageHelper.setText(templateContent, true);
+            for (ReportObject attachment : obj.getReports()) {
                 File tempFile = File.createTempFile(FilenameUtils.getBaseName(attachment.getFilename()), "." + FilenameUtils.getExtension(attachment.getFilename()));
                 mimeMessageHelper.addAttachment(tempFile.getName(), tempFile);
             }

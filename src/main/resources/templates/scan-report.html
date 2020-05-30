@@ -1,6 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <body style="width: 100% !important;height: 100%;-webkit-text-size-adjust: none;font-family: &quot;nunito sans&quot: ;, helvetica, arial, sans-serif: ;background-color: #F4F4F7;color: #51545E;margin: 0;" bgcolor="#F4F4F7">
+<#assign info_color = "#0099CC">
+
 <!--<span class="preheader" style="display: none !important;visibility: hidden;mso-hide: all;font-size: 1px;line-height: 1px;max-height: 0;max-width: 0;opacity: 0;overflow: hidden;">Your trial period for [Product Name] has recently expired. What would you like us to do?</span>-->
 <table class="email-wrapper" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="width: 100%; -premailer-width: 100%; -premailer-cellpadding: 0; -premailer-cellspacing: 0; background-color: #F4F4F7; margin: 0; padding: 0;" bgcolor="#F4F4F7">
     <tr>
@@ -15,14 +17,13 @@
                             <tr>
                                 <td class="content-cell" style="word-break: break-word; font-family: Helvetica, Arial, sans-serif; font-size: 16px; padding: 35px;">
                                     <div class="f-fallback">
-                                        <h1 style="margin-top: 0;color: #333333;font-size: 22px;font-weight: bold;text-align: left;" align="left">
+                                        <h1 style="margin-top: 0;color: ${info_color};font-size: 22px;font-weight: bold;text-align: left;" align="left">
                                             Your ${source} scan report is ready!
                                         </h1>
                                         <p style="font-size: 10px; line-height: 1.625; color: #51545E; margin: .4em 0 1.1875em;">
                                             ${date}
                                         </p>
                                         <!-- Action -->
-                                        <#include "action.html">
 
                                         <p style="font-size: 16px; line-height: 1.625; color: #51545E; margin: .4em 0 1.1875em;">
                                             Check out the scan summary. we've also attached them in the mail for you.
@@ -30,9 +31,12 @@
 
                                         <#include "scan-results.html">
                                         <!-- #include "info-build.html" -->
+                                        <br/>
+
+                                        <#include "action.html">
+                                        <br/>
                                         <#include "info-reports.html">
 
-                                        <hr/>
 
 <!--                                        <p style="font-size: 16px; line-height: 1.625; color: #51545E; margin: .4em 0 1.1875em;">Regardless of your choice, we want to say thank you for trying [Product Name]. We know it's an investment of your time, and we appreciate you giving us a chance.</p>-->
 <!--                                        <p style="font-size: 16px; line-height: 1.625; color: #51545E; margin: .4em 0 1.1875em;">Thanks,-->

@@ -1,7 +1,7 @@
 package com.bnhp.gitlabci.devsecops.pipeline;
 
 import com.bnhp.gitlabci.devsecops.pipeline.objects.ScanObject;
-import com.bnhp.gitlabci.devsecops.pipeline.tools.base.Policy;
+import com.bnhp.gitlabci.devsecops.pipeline.tools.base.EnginePolicy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.ApplicationArguments;
@@ -21,8 +21,6 @@ public class InfoUtils {
     public final static List<String> discardRequestInformation = new ArrayList<>();
 
 
-
-
     public static void writeMapInfo(String name, Map parameters) {
 
         if (!log.isDebugEnabled()) {
@@ -37,8 +35,8 @@ public class InfoUtils {
 
         if (!parameters.isEmpty()) {
             for (Object key : parameters.keySet()) {
-                if(key.equals(""))
-                sb.append(String.format(LIST_FORMAT, key, parameters.get(key)));
+                if (key.equals(""))
+                    sb.append(String.format(LIST_FORMAT, key, parameters.get(key)));
             }
             sb.append("");
         } else {
@@ -85,12 +83,12 @@ public class InfoUtils {
         sb.append(String.format(LIST_FORMAT, "Option Names", ""));
 
         args.getOptionNames().forEach(a -> {
-            sb.append(String.format(LIST_FORMAT, a,args.getOptionValues(a)));
+            sb.append(String.format(LIST_FORMAT, a, args.getOptionValues(a)));
         });
 
         sb.append(String.format(LIST_FORMAT, "Non Options Args", ""));
         args.getNonOptionArgs().forEach(a -> {
-            sb.append(String.format(LIST_FORMAT, a,""));
+            sb.append(String.format(LIST_FORMAT, a, ""));
         });
         String wholeDump = sb.toString();
         log.debug(wholeDump);
@@ -103,19 +101,19 @@ public class InfoUtils {
         sb.append(String.format("%n%n ScanObject %n"));
         sb.append(String.format(" =======================%n"));
         sb.append(String.format(LIST_FORMAT, "Option Names", ""));
-        Utils.beanProperties(object).forEach((k, v) -> sb.append(String.format(LIST_FORMAT, k,v)));
+        Utils.beanProperties(object).forEach((k, v) -> sb.append(String.format(LIST_FORMAT, k, v)));
         String wholeDump = sb.toString();
         log.debug(wholeDump);
     }
 
-    public static void writePolicy(Policy policy) {
+    public static void writePolicy(EnginePolicy enginePolicy) {
 
         StringBuilder sb = new StringBuilder();
 
         sb.append(String.format("%n%n EnginePolicy %n"));
         sb.append(String.format(" =======================%n"));
         sb.append(String.format(LIST_FORMAT, "Policy", ""));
-        Utils.beanProperties(policy).forEach((k, v) -> sb.append(String.format(LIST_FORMAT, k,v)));
+        Utils.beanProperties(enginePolicy).forEach((k, v) -> sb.append(String.format(LIST_FORMAT, k, v)));
         String wholeDump = sb.toString();
         log.debug(wholeDump);
     }

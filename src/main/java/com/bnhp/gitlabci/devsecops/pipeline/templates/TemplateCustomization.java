@@ -9,8 +9,8 @@ public class TemplateCustomization {
     public static final String ERROR_COLOR = "#ff6136";
     public String color;
 
-    public TemplateCustomization(boolean success){
-        this.color = success? SUCCESS_COLOR : ERROR_COLOR;
+    public TemplateCustomization(boolean success) {
+        this.color = success ? SUCCESS_COLOR : ERROR_COLOR;
     }
 
 

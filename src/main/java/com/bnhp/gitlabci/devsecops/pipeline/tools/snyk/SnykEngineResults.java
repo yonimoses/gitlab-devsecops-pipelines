@@ -1,11 +1,12 @@
-package com.bnhp.gitlabci.devsecops.pipeline.objects;
+package com.bnhp.gitlabci.devsecops.pipeline.tools.snyk;
 
+import com.bnhp.gitlabci.devsecops.pipeline.tools.base.EngineResults;
 import lombok.Builder;
 import lombok.Data;
 
 @Builder
 @Data
-public class ScanResults {
+public class SnykEngineResults extends EngineResults {
 
     public Boolean success;
     public long total;
@@ -15,23 +16,16 @@ public class ScanResults {
     public String summary;
     public String technology;
 
-    public Boolean getSuccess() {
-        return success;
-    }
-
-    public void setSuccess(Boolean success) {
-        this.success = success;
-    }
-
-
-
     @Override
     public String toString() {
-        return "ScanResults{" +
-                "success=" + success +
+        return "SnykEngineResults{" +
+                ", success=" + success +
+                ", total=" + total +
                 ", high=" + high +
                 ", medium=" + medium +
                 ", low=" + low +
+                ", summary='" + summary + '\'' +
+                ", technology='" + technology + '\'' +
                 '}';
     }
 }

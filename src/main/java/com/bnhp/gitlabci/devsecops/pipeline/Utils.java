@@ -34,7 +34,7 @@ public class Utils {
         }
     }
 
-    public static String getFilename(String url)  {
+    public static String getFilename(String url) {
         try {
             URL _url = new URL(url);
             return FilenameUtils.getName(_url.getPath());

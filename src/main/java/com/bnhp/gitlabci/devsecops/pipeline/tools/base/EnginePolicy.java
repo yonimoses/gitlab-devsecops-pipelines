@@ -1,6 +1,5 @@
 package com.bnhp.gitlabci.devsecops.pipeline.tools.base;
 
-import com.bnhp.gitlabci.devsecops.pipeline.objects.ScanResults;
 import lombok.Data;
 
 /**
@@ -8,9 +7,10 @@ import lombok.Data;
  * This policy should be set by AMAM.
  */
 @Data
-public abstract class Policy {
+public abstract class EnginePolicy<T extends EngineResults> {
 
-    public abstract boolean invoke(ScanResults results);
+    public abstract boolean allowed(T results);
+
     public abstract String getName();
 
 }
